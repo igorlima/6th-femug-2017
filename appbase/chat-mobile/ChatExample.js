@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ListView, StyleSheet } from 'react-native'
+import Appbase from 'appbase-js'
 
 /*
 React Native is a great option for creating performant iOS and Android apps
@@ -8,18 +9,6 @@ that feel at home on their respective platforms.
 For further details, feel free to take a look at the great RN documentation.
 - https://facebook.github.io/react-native/docs/getting-started.html
 **/
-class Appbase {
-  search () {
-    return this
-  }
-  searchStream () {
-    return this
-  }
-  on () {
-    return this
-  }
-}
-
 const ES_TYPE = 'chat'
 const appbaseRef = new Appbase({
   url: 'https://scalr.api.appbase.io',
@@ -118,6 +107,7 @@ class ChatExample extends Component {
   render () {
     return (
       < ListView
+        enableEmptySections={true}
         style={styles.chatContainer}
         dataSource={this.state.dataSource}
         renderRow={({author, msg}) => < Message author={author} msg={msg} />}

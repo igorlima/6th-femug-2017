@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ListView, StyleSheet } from 'react-native'
+import firebase from 'firebase'
 
 /*
 React Native is a great option for creating performant iOS and Android apps
@@ -8,25 +9,16 @@ that feel at home on their respective platforms.
 For further details, feel free to take a look at the great RN documentation.
 - https://facebook.github.io/react-native/docs/getting-started.html
 **/
-class Appbase {
-  search () {
-    return this
-  }
-  searchStream () {
-    return this
-  }
-  on () {
-    return this
-  }
+const FIREBASE_PROPERTY = 'chat'
+// Initialize Firebase
+const config = {
+  apiKey: "AIzaSyAp-CLeimcXe59hvyNqpL66R0TQUyyoNjo",
+  authDomain: "talk2016-9079a.firebaseapp.com",
+  databaseURL: "https://talk2016-9079a.firebaseio.com",
+  storageBucket: "talk2016-9079a.appspot.com",
 }
-
-const ES_TYPE = 'chat'
-const appbaseRef = new Appbase({
-  url: 'https://scalr.api.appbase.io',
-  appname: 'talks_2016',
-  username: 'aWSlJvIUk',
-  password: '58e3edd6-8933-4f61-a648-231c0404d4d7'
-})
+firebase.initializeApp(config)
+const database = firebase.database()
 
 class Message extends Component {
   render () {
@@ -51,59 +43,19 @@ class ChatExample extends Component {
   }
   
   componentDidMount () {
-    // fetch all data under the type ES_TYPE
-    appbaseRef.search({
-      type: ES_TYPE,
-      body: {
-        query: {
-          filtered: {
-            filter: {
-              range: {
-                dt: {
-                  gte: new Date(Date.now() - 1000000).getTime(),
-                  lte: new Date(Date.now() + 1000000).getTime()
-                }
-              }
-            }
-          }
-        }
-      }
-    }).on('data', (stream) => {
-      const {
-        hits: {
-          hits = []
-        } = {}
-      } = stream || {};
-      const list = hits.map(({_source = {}} = {}) => _source)
-      this.setState({
-        message: list.map(({name, msg}) => ({author: name, msg}))
-      })
-      list.forEach(console.log)
-      console.log("searchStream(), new match: ", list)
-    }).on('error', (error) => {
-      console.log("caught a searchStream() error: ", error)
-    })
-    
-    // keep watching the Elastic Search type ES_TYPE
-    appbaseRef.searchStream({
-      type: ES_TYPE,
-      body: {
-        query: {
-          match_all: {}
-        }
-      }
-    }).on('data', (stream) => {
-      let {_deleted, _source} = stream
-      if (!_deleted && _source) {
+    database
+    .ref(FIREBASE_PROPERTY)
+    .orderByChild('dt')
+    .startAt(new Date(Date.now() - 1000000).getTime())
+    .on('child_added', (snapshot) => {
+      const value = snapshot.val()
+      if (value) {
         const message = [...this.state.message]
-        const {msg, name: author} = _source
+        const {msg, name: author} = value
         message.push({msg, author})
         this.setState({message})
-        console.log(_source)
+        console.log(value)
       }
-      console.log("searchStream(), new match: ", stream)
-    }).on('error', (error) => {
-      console.log("caught a searchStream() error: ", error)
     })
   }
   
@@ -118,6 +70,7 @@ class ChatExample extends Component {
   render () {
     return (
       < ListView
+        enableEmptySections={true}
         style={styles.chatContainer}
         dataSource={this.state.dataSource}
         renderRow={({author, msg}) => < Message author={author} msg={msg} />}

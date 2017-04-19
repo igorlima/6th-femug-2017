@@ -75,7 +75,7 @@ class ChatExample extends Component {
   componentWillUpdate(nextProps, nextState) {
     if (nextState.message !== this.state.message) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(nextProps.state.message)
+        dataSource: this.state.dataSource.cloneWithRows(nextState.message)
       })
     }
   }
