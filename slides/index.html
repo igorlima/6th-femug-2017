@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Slides React Native - 6º FEMUG MG 2017</title>
+  <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/hakimel/reveal.js/3.3.0/css/reveal.css'>
+  <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/hakimel/reveal.js/3.3.0/css/theme/white.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="reveal">
+  <div class="slides">
+    <section>
+      <section>
+        <h1>React Native</h1>
+        <p>facilitando o desenvolvimento da próxima geração de aplicativos <strong>JS</strong></p>
+        <p>
+          <small>
+            Igor Ribeiro Lima - lima.igorribeiro@gmail.com
+          </small>
+        </p>
+      </section>
+      <section>
+        <p><strong>
+          <a href="https://igorlima.github.io/rubyconfbr2016/">
+            http://bit.do/6th-femug-2017
+          </a>
+        </strong></p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>quantas linhas de código?</h2>
+      </section>
+      <section data-background-image="http://i.giphy.com/A06UFEx8jxEwU.gif">
+      </section>
+      <section>
+        <h2>noites debugando Java/ObjectiveC?</h2>
+      </section>
+      <section data-background-image="http://i.giphy.com/OkfeQxkdBVeKY.gif">
+      </section>
+      <section>
+        <h2>só JS?</h2>
+      </section>
+      <section data-background-image="img/only-js.png">
+      </section>
+      <section>
+        <h2>existe alguma mágica?</h2>
+      </section>
+      <section data-background-image="https://cloud.githubusercontent.com/assets/1886786/17462812/cd195154-5c8e-11e6-8c4a-1a4d626200a3.gif">
+      </section>
+    </section>
+    <section>
+      <section>
+        <img class="no-border" data-src="img/react-native.png"/>
+      </section>
+      <section>
+        <h3>O que é realmente o React Native?</h3>
+        <ul>
+          <li class="fragment fade-in">WebView?</li>
+          <li class="fragment fade-in">Transpilador?</li>
+          <li class="fragment fade-in">JS?</li>
+        </ul>
+      </section>
+      <section>
+        <img class="no-border" data-src="img/inside-react-native.png"/>
+      </section>
+      <section>
+        <img class="no-border" data-src="img/react-vs-react-native.jpg"/>
+      </section>
+      <section>
+        <img class="no-border" data-src="img/react-native-bridge.jpg"/>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h3>Um componente simples</h3>
+        <a href="https://snack.expo.io/BkaZm8EAl">
+          https://snack.expo.io/
+        </a>
+        <pre><code data-trim data-noescape>
+import React, { Component } from 'react'
+import { Text, View, StyleSheet } from 'react-native'
+
+export default class App extends Component {
+  render() {
+    return (
+      < View style={styles.container}>
+        < Text style={styles.paragraph}>
+          Change code in the editor and watch it change on your phone!
+          Save to get a shareable url. You get a new url each time you save.
+        < /Text>
+      < /View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+})
+        </code></pre>
+      </section>
+    </section>
+    <section>
+      <section>
+        <img class="no-border" data-src="img/ezinho.png"/>
+      </section>
+      <section>
+        <img class="no-border" data-src="img/EzDeliveryApp.png"/>
+      </section>
+      <section>
+        <h1>Em breve</h1>
+        <img class="no-border" data-src="img/google-play.png"/>
+        <br>
+        <img class="no-border" data-src="img/app-store.png"/>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Dever de casa</h2>
+      </section>
+      <section data-background-image="http://i.giphy.com/sehMfkRJ9PQaI.gif">
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Appbase</h2>
+        <img data-src="https://cloud.githubusercontent.com/assets/1886786/17280060/da1979ba-575c-11e6-923b-57d5b50e5a04.png" class="no-border"/>
+      </section>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th align="center"></th>
+              <th align="center"></th>
+              <th align="center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="center"><img data-src="https://cloud.githubusercontent.com/assets/1886786/17280185/1b063668-5760-11e6-8a51-e5aa8fe2078a.png" alt="quick-intro-appbase-1" style="max-width:100%;" class="no-border"/></td>
+              <td align="center"><img data-src="https://cloud.githubusercontent.com/assets/1886786/17280187/20b3c06c-5760-11e6-94b7-7e564cb158e4.png" alt="quick-intro-appbase-2" style="max-width:100%;" class="no-border"/></td>
+              <td align="center"><img data-src="https://cloud.githubusercontent.com/assets/1886786/17280188/26b0a7c8-5760-11e6-9078-f6ba61e7ed4e.png" alt="quick-intro-appbase-3" style="max-width:100%;" class="no-border"/></td>
+            </tr>
+            <tr>
+              <td align="center">
+                <small>
+                  Compatibilidade com Elasticsearch
+                </small>
+              </td>
+              <td align="center">
+                <small>
+                  Ouça por mudança <del>GET</del>
+                </small>
+              </td>
+              <td align="center">
+                <small>
+                  Toda API é autenticada através de HTTPS
+                </small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="notes">
+          <small>Conceitos ElasticSearch. <strong>Index</strong> é equivalente a um banco de dados no SQL. <strong>Type</strong> é equivalente a tabelas. <strong>Document</strong> é equivalante a um registro ou uma linha. <i>No caso, um <strong>index</strong> é uma aplicação no Appbase</i>.</small>
+        </aside>
+      </section>
+      <section>
+        <h3>Configurando</h3>
+        <pre><code data-trim data-noescape>
+var appbaseRef = new Appbase({
+  url: 'https://scalr.api.appbase.io',
+  appname: 'talks_2016',
+  username: 'aWSlJvIUk',
+  password: '58e3edd6-8933-4f61-a648-231c0404d4d7'
+})
+        </code></pre>
+      </section>
+      <section>
+        <h3>Armazenando dados</h3>
+        <pre><code data-trim data-noescape>
+appbaseRef.index({
+  type: 'getting_started',
+  id: 'id123',
+  body: {
+    date: Date.now(),
+    reason: 'tested'
+  }
+}).on('data', function(response) {
+  console.log(response)
+}).on('error', function(error) {
+  console.log(error)
+})
+        </code></pre>
+      </section>
+      <section>
+        <h3>Buscando dados</h3>
+        <pre><code data-trim data-noescape>
+const ES_TYPE = 'getting_started'
+const ID_TEST = 'id123'
+
+appbaseRef.get({
+  type: ES_TYPE,
+  id: ID_TEST
+}).on('data', function(response) {
+  console.log(response)
+}).on('error', function(error) {
+  console.log(error)
+})
+
+appbaseRef.getStream({
+  type: ES_TYPE,
+  id: ID_TEST
+}).on('data', function(response) {
+  console.log(response)
+}).on('error', function(error) {
+  console.log("getStream() failed with: ", error)
+})
+        </code></pre>
+      </section>
+      <section>
+        <h3>API REST</h3>
+        <pre><code data-trim data-noescape>
+const USER = 'aWSlJvIUk'
+const PASS = '58e3edd6-8933-4f61-a648-231c0404d4d7'
+const APPNAME = 'talks_2016'
+
+const ES_TYPE = 'getting_started'
+const ID_TEST = 'id123'
+
+const uri = `https://scalr.api.appbase.io/${APPNAME}/${ES_TYPE}/${ID_TEST}`
+// https://aWSlJvIUk:58e3edd6-8933-4f61-a648-231c0404d4d7@scalr.api.appbase.io/talks_2016/getting_started/id123
+
+fetch(uri, {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json; charset=UTF-8',
+    'Authorization': `Basic ${btoa(USER + ':' + PASS)}`
+  }
+}).then((response) => {
+  response.json().then((json) => {
+    console.log(json)
+  })
+})
+
+fetch(uri, {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': `Basic ${btoa(USER + ':' + PASS)}`
+  },
+  body: JSON.stringify({
+    date: Date.now(),
+    reason: 'tested'
+  })
+}).then((response) => {
+  response.json().then((json) => {
+    console.log('---->', json)
+  })
+})
+        </code></pre>
+        <small>
+          <a href="https://aWSlJvIUk:58e3edd6-8933-4f61-a648-231c0404d4d7@scalr.api.appbase.io/talks_2016/getting_started/id123">
+            GET -> https://aWSlJvIUk:58e3edd6-8933-4f61-a648-231c0404d4d7@scalr.api.appbase.io/talks_2016/getting_started/id123
+          </a>
+        </small>
+      </section>
+      <section>
+        <h3>Data Browser</h3>
+        <img data-src="https://cloud.githubusercontent.com/assets/1886786/17278230/7ae8104c-572e-11e6-8b03-fff184b41ea7.png"/>
+      </section>
+      <section>
+        <h3>Mãos na massa ;-)</h3>
+        <iframe height='591' scrolling='no' data-src='//codepen.io/igorribeirolima/embed/preview/NAYGom/?height=591&theme-id=light&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/igorribeirolima/pen/NAYGom/'>Getting Started DBaaS - Appbase</a> by Igor Ribeiro Lima (<a href='http://codepen.io/igorribeirolima'>@igorribeirolima</a>) on <a href='http://codepen.io'>CodePen</a>.</iframe>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Firebase</h2>
+        <img data-src="https://cloud.githubusercontent.com/assets/1886786/17280068/41a4c65c-575d-11e6-971f-6b769968cad6.png" class="no-border"/>
+      </section>
+      <section>
+        <img data-src="https://cloud.githubusercontent.com/assets/1886786/17280120/76d3ad10-575e-11e6-8c04-7debb19e7900.png" class="no-border"/>
+      </section>
+      <section>
+        <h3>Configurando</h3>
+        <pre><code data-trim data-noescape>
+// Initialize Firebase
+// https://firebase.google.com/docs/database/web/start
+const config = {
+  apiKey: "AIzaSyAp-CLeimcXe59hvyNqpL66R0TQUyyoNjo",
+  authDomain: "talk2016-9079a.firebaseapp.com",
+  databaseURL: "https://talk2016-9079a.firebaseio.com",
+  storageBucket: "talk2016-9079a.appspot.com",
+}
+firebase.initializeApp(config)
+const database = firebase.database()
+        </code></pre>
+      </section>
+      <section>
+        <h3>Armazenando dados</h3>
+        <pre><code data-trim data-noescape>
+const FIREBASE_PROPERTY = 'getting_started'
+// save any object
+// https://firebase.google.com/docs/database/web/save-data
+database.ref(FIREBASE_PROPERTY).set({
+  test: 12
+})
+
+// update any object
+// https://firebase.google.com/docs/database/web/save-data
+database.ref(FIREBASE_PROPERTY).update({
+  hello: 'hello, firebase!!!'
+})
+        </code></pre>
+      </section>
+      <section>
+        <h3>Buscando dados</h3>
+        <pre><code data-trim data-noescape>
+const FIREBASE_PROPERTY = 'getting_started'
+
+// fetch data we alreaday have saved
+// and keep watching the data change
+// https://firebase.google.com/docs/database/web/retrieve-data
+database.ref(FIREBASE_PROPERTY).on('value', (snapshot) => {
+  const value = snapshot.val()
+  if (value) {
+    console.log(value)
+  }
+})
+        </code></pre>
+      </section>
+      <section>
+        <h3>API REST</h3>
+        <pre><code data-trim data-noescape>
+const URI = 'https://talk2016-9079a.firebaseio.com/getting_started.json'
+
+fetch(URI, {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json; charset=UTF-8'
+  }
+}).then((response) => {
+  response.json().then((json) => {
+    console.log(json)
+  })
+})
+
+fetch(URI, {
+  method: 'PUT',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    date: Date.now(),
+    reason: 'tested'
+  })
+}).then((response) => {
+  response.json().then((json) => {
+    console.log('---->', json)
+  })
+})
+        </code></pre>
+        <small>
+          <a href="https://talk2016-9079a.firebaseio.com/getting_started.json">
+            GET -> https://talk2016-9079a.firebaseio.com/getting_started.json
+          </a>
+        </small>
+      </section>
+      <section>
+        <h3>Data Browser</h3>
+        <img data-src="https://cloud.githubusercontent.com/assets/1886786/17278245/ddf0885e-572e-11e6-8add-0b917c0555ac.png"/>
+      </section>
+      <section>
+        <h3>Mãos na massa ;-)</h3>
+        <iframe height='591' scrolling='no' data-src='//codepen.io/igorribeirolima/embed/preview/pbkQZW/?height=591&theme-id=light&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/igorribeirolima/pen/pbkQZW/'>Getting Started DBaaS - Firebase</a> by Igor Ribeiro Lima (<a href='http://codepen.io/igorribeirolima'>@igorribeirolima</a>) on <a href='http://codepen.io'>CodePen</a>.</iframe>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h3>Meu primeiro app</h3>
+        <a href="https://snack.expo.io/H1OZL57Rg">
+          https://snack.expo.io/
+        </a>
+        <pre><code data-trim data-noescape>
+import React, { Component } from 'react'
+import { Text, View, ListView, StyleSheet } from 'react-native'
+
+/*
+React Native is a great option for creating performant iOS and Android apps
+that feel at home on their respective platforms.
+
+For further details, feel free to take a look at the great RN documentation.
+- https://facebook.github.io/react-native/docs/getting-started.html
+**/
+
+const messages = [{
+  author: 'João',
+  msg: 'Lorem ipsum dolor sit amet'
+}, {
+  author: 'José',
+  msg: 'Vel nisl impetus intellegat at'
+}]
+
+class Message extends Component {
+  render () {
+    const {author, msg} = this.props
+    return (
+      < View style={styles.messageContainer}>
+        < Text style={styles.messageAuthor}>{author}< /Text>
+        < Text style={styles.messageText}>{msg}< /Text>
+      < /View>
+    )
+  }
+}
+
+class ChatExample extends Component {
+  constructor () {
+    super()
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.state = {
+      dataSource: ds.cloneWithRows(messages),
+    }
+  }
+
+  render () {
+    return (
+      < ListView
+        style={styles.chatContainer}
+        dataSource={this.state.dataSource}
+        renderRow={({author, msg}) => < Message author={author} msg={msg} />}
+      />
+    )
+  }
+}
+
+export default class App extends Component {
+  render() {
+    return (
+      < View style={styles.appContainer}>
+        < Text style={styles.welcome}>
+          Welcome to React Native!
+        < /Text>
+        < ChatExample />
+      < /View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
+  chatContainer: {
+    marginTop: 10,
+    marginRight: 5,
+    marginLeft: 5
+  },
+  messageContainer: {
+    flexGrow: 1,
+    flexDirection: 'row',
+    marginBottom: 10
+  },
+  messageAuthor: {
+    flex: 0.2,
+    fontWeight: 'bold',
+    marginRight: 5
+  },
+  messageText: {
+    flex: 1,
+    fontStyle: 'italic',
+    textAlign: 'justify',
+    marginRight: 5
+  },
+  welcome: {
+    color: 'white',
+    backgroundColor: 'rgb(245, 123, 45)',
+    fontSize: 20,
+    textAlign: 'center',
+    padding: 15,
+    margin: 0,
+  }
+})
+
+        </code></pre>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Muito Obrigado</h2>
+        <p>
+          <strong>Gostou?</strong>
+          <span>Compartilhe. Dê um <i>like</i>.</span>
+        </p>
+        <p>
+          <strong>Críticas / dúvidas / sugestões?</strong>
+          <span>Ajude a melhorar abrindo <i>issues</i> ou <i>forkando</i> o <a href="https://github.com/igorlima/6th-femug-2017">projeto no GitHub</a>.</span>
+        </p>
+        <small>
+          <a href="https://igorlima.github.io/6th-femug-2017/">
+            http://bit.do/6th-femug-2017
+          </a>
+        </small>
+      </section>
+      <section>
+        <h3>Obrigado!!!</h3>
+        <img class="no-border" data-src="https://minicurso-introducao-saucelabs.herokuapp.com/img/smile.jpg">
+      </section>
+    </section>
+  </div>
+</div>
+<!--
+https://github.com/hakimel/reveal.js/
+https://github.com/hakimel/reveal.js/blob/master/README.md
+http://aseemk.com/talks/intro-to-coffeescript
+https://github.com/igorlima/minicurso-de-introducao-ao-saucelabs
+https://github.com/igorlima/a-scaffolding-tool-for-web-applications
+https://gist.github.com/igorlima/9d5850aa41bbf36fae64f21090a631f6
+
+Other themes:
+blood.css
+league.css
+night.css
+black.css
+
+serif.css
+simple.css
+white.css
+-->
+  <script src='https://cdn.rawgit.com/hakimel/reveal.js/3.3.0/js/reveal.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

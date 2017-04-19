@@ -1,0 +1,13 @@
+.container-live-code {
+  display: flex;
+}
+
+.reveal section img.no-border {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.overlay.overlay-preview.visible.loaded .viewport {
+  background-color: white;
+}
