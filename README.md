@@ -1,4 +1,4 @@
-# 6th-femug-2017
+# [6º FEMUG-MG](https://www.meetup.com/FEMUG-MG/events/239132831/)
 A walk through React Native: powering the next gen of JS apps.
 
 This talk is a quick overview of React Native to understand the basic structure to develop a cross-platform mobile application without having to worry about Android and iOS languages. Also, React Native allows us to focus on what JavaScript developers like - code only in JS. Best of all, the application has almost the same performance as a native application. Besides that, this talk shows a real example that will be published soon on Google Play and App Store. Plus another practical example, as homework to boost the learning.
